@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>مدیریت گیم سنتر</title>
+
+<style>
+body{
+font-family:tahoma;
+background:#111;
+color:white;
+text-align:center;
+direction:rtl;
+}
+
+h1{
+margin:20px;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:80%;
+background:#1e1e1e;
+}
+
+th,td{
+border:1px solid #444;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#333;
+}
+
+input{
+width:80px;
+padding:5px;
+text-align:center;
+}
+
+select{
+padding:5px;
+}
+
+.device{
+background:#222;
+font-weight:bold;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+font-size:16px;
+background:#00aaff;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#0088cc;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>سیستم مدیریت گیم سنتر</h1>
+
+<table>
+<tr>
+<th>دستگاه</th>
+<th>تایم شروع</th>
+<th>مدت بازی (دقیقه)</th>
+<th>تایم پایان</th>
+<th>تعداد دسته</th>
+<th>هزینه</th>
+</tr>
+
+<tr>
+<td class="device">دستگاه 1</td>
+<td><input type="time" id="start1"></td>
+<td><input type="number" id="time1" value="60"></td>
+<td id="end1">-</td>
+<td>
+<select id="pad1">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+</td>
+<td id="cost1">0</td>
+</tr>
+
+<tr>
+<td class="device">دستگاه 2</td>
+<td><input type="time" id="start2"></td>
+<td><input type="number" id="time2" value="60"></td>
+<td id="end2">-</td>
+<td>
+<select id="pad2">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+</td>
+<td id="cost2">0</td>
+</tr>
+
+<tr>
+<td class="device">دستگاه 3</td>
+<td><input type="time" id="start3"></td>
+<td><input type="number" id="time3" value="60"></td>
+<td id="end3">-</td>
+<td>
+<select id="pad3">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+</td>
+<td id="cost3">0</td>
+</tr>
+
+<tr>
+<td class="device">دستگاه 4</td>
+<td><input type="time" id="start4"></td>
+<td><input type="number" id="time4" value="60"></td>
+<td id="end4">-</td>
+<td>
+<select id="pad4">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+</td>
+<td id="cost4">0</td>
+</tr>
+
+</table>
+
+<button onclick="calculate()">محاسبه</button>
+
+<script>
+
+function pricePerHour(pads){
+
+if(pads==1) return 20;
+if(pads==2) return 25;
+if(pads==3) return 30;
+if(pads==4) return 35;
+
+}
+
+function calculate(){
+
+for(let i=1;i<=4;i++){
+
+let start=document.getElementById("start"+i).value;
+let minutes=parseInt(document.getElementById("time"+i).value);
+let pads=parseInt(document.getElementById("pad"+i).value);
+
+if(!start) continue;
+
+let parts=start.split(":");
+let h=parseInt(parts[0]);
+let m=parseInt(parts[1]);
+
+let totalMinutes=h*60+m+minutes;
+
+let endH=Math.floor(totalMinutes/60)%24;
+let endM=totalMinutes%60;
+
+if(endH<10) endH="0"+endH;
+if(endM<10) endM="0"+endM;
+
+document.getElementById("end"+i).innerText=endH+":"+endM;
+
+let hours=minutes/60;
+
+let cost=hours*pricePerHour(pads);
+
+document.getElementById("cost"+i).innerText=cost.toFixed(0);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -17,6 +17,6 @@ Game Center Management System
 
 ***
 
-🌐 وبسایت برنامه: https://sadra-hatami.github.io/Rock_Paper_Scissors/
+🌐 وبسایت برنامه: https://sadra-hatami.github.io/Game_Center_Management/
 
 📧 ایمیل سازنده برنامه: sadra.hatami.1732@gmail.com

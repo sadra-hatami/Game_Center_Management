@@ -1,4 +1,4 @@
-# Game_Center_Management
+# Game-Center-Management
 
 ***
 
@@ -17,6 +17,6 @@ Game Center Management System
 
 ***
 
-🌐 وبسایت برنامه: https://sadra-hatami.github.io/Game_Center_Management/
+🌐 وبسایت برنامه: https://sadra-hatami.github.io/Game-Center-Management/
 
 📧 ایمیل سازنده برنامه: sadra.hatami.1732@gmail.com

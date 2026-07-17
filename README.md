@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🎮 Game Center Management
+# Game Center Management
+# 🕹️🎮🖲️
 
 ### A Browser-Based Game Center Management System
 
